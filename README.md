@@ -66,6 +66,7 @@ Sample output:
 
 To be able to retrieve vulnerabilities, a source repository that supports this endpoint is needed, see e.g. [Where do CVE/GHSA come from?](https://devblogs.microsoft.com/nuget/how-to-scan-nuget-packages-for-security-vulnerabilities/)
 
-This tool only uses the first end point provided in you nuget.config and has only been tested against `https://api.nuget.org/v3/index.json`; the NuGet configuration is read starting at the current working directory, see [](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses)
+This tool only uses the first end point provided in you nuget.config and has only been tested against `https://api.nuget.org/v3/index.json`; 
+the NuGet configuration is read starting at the current working directory, see [Config file locations and uses](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses)
 
 However, if there isn't some very customized configuration, this should be the default.
