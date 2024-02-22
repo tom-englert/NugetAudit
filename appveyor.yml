@@ -1,0 +1,9 @@
+image: Visual Studio 2022
+environment:
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+build_script:
+- dotnet build src/NugetAudit.sln --configuration Release
+test: off
+artifacts:
+- path: *.nupkg

@@ -1,0 +1,29 @@
+This product bundles the following components under the described licenses:
+
+--------------------------------------------------------------------------------
+
+Microsoft.Extensions.DependencyModel
+
+Id:      Microsoft.Extensions.DependencyModel
+Version: 8.0.0
+Project: https://dot.net/
+License: MIT
+
+--------------------------------------------------------------------------------
+
+NuGet.Protocol
+
+Id:      NuGet.Protocol
+Version: 6.9.1
+Project: https://aka.ms/nugetprj
+License: Apache-2.0
+
+--------------------------------------------------------------------------------
+
+Tom's Toolbox Essentials Module
+
+Id:      TomsToolbox.Essentials
+Version: 2.14.0
+Project: https://github.com/tom-englert/TomsToolbox
+License: MIT
+
