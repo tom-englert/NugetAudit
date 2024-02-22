@@ -1,4 +1,7 @@
 # NugetAudit
+[![Build status](https://ci.appveyor.com/api/projects/status/k6rw51lvxdeicwq9/branch/main?svg=true)](https://ci.appveyor.com/project/tom-englert/nugetaudit/branch/main)
+[![NuGet Status](https://img.shields.io/nuget/v/TomsToolbox.NugetAudit.svg)](https://www.nuget.org/packages/TomsToolbox.NugetAudit/)
+
 A DotNet command line tool to create a vulnerability report from an applications *.deps.json file
 
 ## Intention of this tool
