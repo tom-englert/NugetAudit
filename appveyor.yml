@@ -6,4 +6,4 @@ build_script:
 - dotnet build src/NugetAudit.sln --configuration Release
 test: off
 artifacts:
-- path: *.nupkg
+- path: ./*.nupkg
