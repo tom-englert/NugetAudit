@@ -1,28 +1,23 @@
 ﻿using NuGet.Common;
-using NuGet.Configuration;
 using NuGet.Packaging.Core;
+using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 
-namespace DependencyModel;
+namespace NugetAudit;
 
 internal sealed class NugetContext : IDisposable
 {
-    private readonly TaskCompletionSource<NugetResources> _nugetResources = new ();
+    private readonly TaskCompletionSource<NugetResources> _nugetResources = new();
 
     public SourceRepository SourceRepository { get; }
 
     public SourceCacheContext CacheContext { get; } = new();
 
-    public NugetContext()
+    public NugetContext(string packageSource)
     {
-        var settings = Settings.LoadDefaultSettings(Directory.GetCurrentDirectory());
-        var packageSourceProvider = new PackageSourceProvider(settings);
-        var sourceRepositoryProvider = new SourceRepositoryProvider(packageSourceProvider, Repository.Provider.GetCoreV3());
-        var sourceRepositories = sourceRepositoryProvider.GetRepositories();
-    
-        SourceRepository = sourceRepositories.First();
+        SourceRepository = Repository.Factory.GetCoreV3(packageSource);
 
-        GetResourcesInternal(SourceRepository);
+        GetResources(SourceRepository);
     }
 
     public Task<NugetResources> Resources => _nugetResources.Task;
@@ -53,7 +48,7 @@ internal sealed class NugetContext : IDisposable
         return package;
     }
 
-    private async void GetResourcesInternal(SourceRepository sourceRepository)
+    private async void GetResources(SourceRepository sourceRepository)
     {
         try
         {

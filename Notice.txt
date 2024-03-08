@@ -2,6 +2,15 @@ This product bundles the following components under the described licenses:
 
 --------------------------------------------------------------------------------
 
+Cocona.Lite
+
+Id:      Cocona.Lite
+Version: 2.2.0
+Project: https://github.com/mayuki/Cocona
+License: MIT
+
+--------------------------------------------------------------------------------
+
 Microsoft.Extensions.DependencyModel
 
 Id:      Microsoft.Extensions.DependencyModel
