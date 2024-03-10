@@ -23,7 +23,7 @@
     <Copyright>© 2024 tom-englert.de</Copyright>
     <Product>Tom's Toolbox</Product>
     <PackageId>TomsToolbox.$(MSBuildProjectName)</PackageId>
-    <PackageTags>DotNet;Audit;Vulnerabilities</PackageTags>
+    <PackageTags>DotNet;NuGet;Audit;Vulnerabilities</PackageTags>
     <Description>A DotNet tool to create a vulnerability report from an applications *.deps.json file.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
