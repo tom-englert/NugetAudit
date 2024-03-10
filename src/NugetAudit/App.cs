@@ -16,11 +16,18 @@ internal static class App
     private const string NugetOrg = "https://api.nuget.org/v3/index.json";
 
     public static async Task<int> Run(
-        [Argument(Description = "Path to a dependency file or directory with files; default is the current directory")]
-        string? fileOrDirectory,
+        [Argument(Description = "Path to a dependency file or a directory with files '*.deps.json'")]
+        string fileOrDirectory = ".",
 
         [Option(Description = "The package source used to get the vulnerability info")]
-        string packageSource = NugetOrg)
+        string packageSource = NugetOrg,
+
+        [Option(Description = "Ignore 'package-source' and read package source from nuget.config")]
+        bool useConfig = false,
+
+        [Option(Description = "The name of the source, if 'use-config' is true")]
+        string? configName = null
+        )
     {
         var files = GetFiles(fileOrDirectory);
 
@@ -30,7 +37,7 @@ internal static class App
             return 1;
         }
 
-        using var context = new NugetContext(packageSource);
+        using var context = useConfig ? NugetContext.FromConfiguration(configName) : NugetContext.FromPackageSource(packageSource);
 
         // Check the source repo: Verify that some known vulnerable package reports vulnerabilities
 

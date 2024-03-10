@@ -18,17 +18,27 @@ to update the software if the vulnerability might affect the product.
 `dotnet tool install TomsToolbox.NugetAudit -g`
 
 ## Usage
-`nuget-audit [file or directory]`
+```
+NugetAudit [--package-source <String>] [--use-config] [--config-name <String>] [--help] [--version] file-or-directory
 
-### Arguments
-- **no arguments**: all *.deps.json in the current directory will be scanned
-- **file**: the specified file is scanned
-- **directory**: all *.deps.json in the specified directory will be scanned
+NugetAudit
 
-Sample output:
+Arguments:
+  0: file-or-directory    Path to a dependency file or a directory with files '*.deps.json' (Default: .)
+
+Options:
+  --package-source <String>    The package source used to get the vulnerability info (Default: https://api.nuget.org/v3/index.json)
+  --use-config                 Ignore 'package-source' and read package source from nuget.config
+  --config-name <String>       The name of the source, if 'use-config' is true
+  -h, --help                   Show help message
+  --version                    Show version
+```
+
+## Sample output:
 ```json
 {
   "reportVersion": 1,
+  "sourceRepository": "https://api.nuget.org/v3/index.json",
   "packages": {
     "Microsoft.IdentityModel.JsonWebTokens.6.32.2.0": {
       "id": "Microsoft.IdentityModel.JsonWebTokens",
@@ -64,9 +74,8 @@ Sample output:
 
 ## Nuget configuration
 
-To be able to retrieve vulnerabilities, a source repository that supports this endpoint is needed, see e.g. [Where do CVE/GHSA come from?](https://devblogs.microsoft.com/nuget/how-to-scan-nuget-packages-for-security-vulnerabilities/)
+To be able to retrieve vulnerabilities, a source repository that supports the package metadata is needed, see e.g. [Where do CVE/GHSA come from?](https://devblogs.microsoft.com/nuget/how-to-scan-nuget-packages-for-security-vulnerabilities/).
 
-This tool only uses the first end point provided in you nuget.config and has only been tested against `https://api.nuget.org/v3/index.json`; 
-the NuGet configuration is read starting at the current working directory, see [Config file locations and uses](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses)
+This tool uses `https://api.nuget.org/v3/index.json` by default, which supports the package metadata endpoint for vulnerabilities.
 
-However, if there isn't some very customized configuration, this should be the default.
+An alternate repository can be specified in the command line or via nuget.config [Config file locations and uses](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).

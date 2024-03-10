@@ -1,7 +1,10 @@
 ﻿using NuGet.Common;
+using NuGet.Configuration;
 using NuGet.Packaging.Core;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
+
+using TomsToolbox.Essentials;
 
 namespace NugetAudit;
 
@@ -13,11 +16,30 @@ internal sealed class NugetContext : IDisposable
 
     public SourceCacheContext CacheContext { get; } = new();
 
-    public NugetContext(string packageSource)
+    public NugetContext(SourceRepository sourceRepository)
     {
-        SourceRepository = Repository.Factory.GetCoreV3(packageSource);
+        SourceRepository = sourceRepository;
 
         GetResources(SourceRepository);
+    }
+
+    public static NugetContext FromPackageSource(string packageSource)
+    {
+        return new NugetContext(Repository.Factory.GetCoreV3(packageSource));
+    }
+
+    public static NugetContext FromConfiguration(string? name)
+    {
+        var settings = Settings.LoadDefaultSettings(Directory.GetCurrentDirectory());
+        var packageSourceProvider = new PackageSourceProvider(settings);
+        var sourceRepositoryProvider = new SourceRepositoryProvider(packageSourceProvider, Repository.Provider.GetCoreV3());
+        var sourceRepositories = sourceRepositoryProvider.GetRepositories().ToArray();
+
+        var sourceRepository = sourceRepositories
+            .FirstOrDefault(repo => name.IsNullOrEmpty() || string.Equals(repo.PackageSource.Name, name, StringComparison.OrdinalIgnoreCase))
+            ?? throw new InvalidOperationException("No source repository found in nuget.config");
+
+        return new NugetContext(sourceRepository);
     }
 
     public Task<NugetResources> Resources => _nugetResources.Task;
