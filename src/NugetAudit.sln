@@ -10,8 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		global.json = global.json
+		..\Notice.txt = ..\Notice.txt
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateNotice", "UpdateNotice\UpdateNotice.csproj", "{661E0AFB-92AB-FCC3-3CA8-0F4953850692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +26,10 @@ Global
 		{181D0815-6FD6-4DF4-8E3C-8031F7656DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{181D0815-6FD6-4DF4-8E3C-8031F7656DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{181D0815-6FD6-4DF4-8E3C-8031F7656DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661E0AFB-92AB-FCC3-3CA8-0F4953850692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661E0AFB-92AB-FCC3-3CA8-0F4953850692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661E0AFB-92AB-FCC3-3CA8-0F4953850692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661E0AFB-92AB-FCC3-3CA8-0F4953850692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

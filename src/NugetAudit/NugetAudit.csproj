@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <IsDeploymentTarget>true</IsDeploymentTarget>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
@@ -11,9 +11,6 @@
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalyzerMode>All</AnalyzerMode>
-    <AnalysisLevel>8.0</AnalysisLevel>
     <WarningsAsErrors>nullable</WarningsAsErrors>
   </PropertyGroup>
 
@@ -47,19 +44,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\Notice.txt" Pack="true" PackagePath="\" />
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Cocona.Lite" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="8.0.0" />
-    <PackageReference Include="NuGet.Protocol" Version="6.9.1" />
-    <PackageReference Include="TomsToolbox.Essentials" Version="2.14.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="9.0.0" />
+    <PackageReference Include="NuGet.Protocol" Version="6.12.1" />
+    <PackageReference Include="TomsToolbox.Essentials" Version="2.21.0" />
   </ItemGroup>
 
-  <Target Name="UpdateNotice" BeforeTargets="Build">
-    <Exec Command="../../UpdateNotice.cmd" />
-  </Target>
-
+  <ItemGroup>
+    <ProjectReference Include="..\UpdateNotice\UpdateNotice.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
 
 </Project>

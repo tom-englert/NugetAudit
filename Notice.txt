@@ -4,35 +4,39 @@ This product bundles the following components under the described licenses:
 
 Cocona.Lite
 
-Id:      Cocona.Lite
-Version: 2.2.0
-Project: https://github.com/mayuki/Cocona
-License: MIT
+Id:        Cocona.Lite
+Version:   2.2.0
+Project:   https://github.com/mayuki/Cocona
+Copyright: Copyright 2020-present Mayuki Sawatari
+License:   MIT
 
 --------------------------------------------------------------------------------
 
 Microsoft.Extensions.DependencyModel
 
-Id:      Microsoft.Extensions.DependencyModel
-Version: 8.0.0
-Project: https://dot.net/
-License: MIT
+Id:        Microsoft.Extensions.DependencyModel
+Version:   9.0.0
+Project:   https://dot.net/
+Copyright: © Microsoft Corporation. All rights reserved.
+License:   MIT
 
 --------------------------------------------------------------------------------
 
 NuGet.Protocol
 
-Id:      NuGet.Protocol
-Version: 6.9.1
-Project: https://aka.ms/nugetprj
-License: Apache-2.0
+Id:        NuGet.Protocol
+Version:   6.12.1
+Project:   https://aka.ms/nugetprj
+Copyright: © Microsoft Corporation. All rights reserved.
+License:   Apache-2.0
 
 --------------------------------------------------------------------------------
 
 Tom's Toolbox Essentials Module
 
-Id:      TomsToolbox.Essentials
-Version: 2.14.0
-Project: https://github.com/tom-englert/TomsToolbox
-License: MIT
+Id:        TomsToolbox.Essentials
+Version:   2.21.0
+Project:   https://github.com/tom-englert/TomsToolbox
+Copyright: © 2012-2024 tom-englert.de
+License:   MIT
 
